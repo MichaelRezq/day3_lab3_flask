@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+
+ {% block title  %}
+        students page
+ {% endblock %}
+{% block content %}
+    <div class="">
+        <h2 class="text-info text-center mb-5 ">
+        All Posts
+    </h2>
+   <div class=" w-50 m-auto " >
+           {% for post in posts %}
+       <a class="text-decoration-none my-3" href="{{ url_for("posts.post_info",id=post.id) }}">
+            <div  class=" shadow-sm p-3 mb-5 bg-body-tertiary rounded position-relative ">
+                <h3 class="text-primary">  {{post.title}}</h3>
+                 <div class="position-absolute top-0 end-0  ">
+
+                     <a href="{{ url_for("posts.delete",id=post.id) }}" class="btn btn-light rounded-circle" >X</a>
+
+                 </div>
+                  <img  class="img-fluid" src="{{ url_for('static', filename = 'images/pexels-eric-mufasa-1350789_6w5liBR.jpg') }}" alt="">
+
+                <p class="text-secondary my-3 "> {{post.body}}</p>
+                <p class="text-secondary my-3 "> categorey: {{post.categorey}}</p>
+
+                <p class="text-secondary my-3 "> {{post.created}}</p>
+                <div class="d-flex justify-content-end">
+                    <a href="{{ url_for("posts.editpost",id=post.id) }}"  class="btn btn-dark">edit</a>
+                </div>
+
+            </div>
+        </a>
+    {% endfor %}
+   </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,21 @@
+## install debendacies
+
+1- pip install flask
+2- pip install Flask-SQLAlchemy
+3-pip install flask-shell-ipython
+4- pip install Flask-Migrate --> then import in init  from flask_migrate import Migrate
+and add     migrate = Migrate(app, db, render_as_batch=True)
+flask db init ---> to create migration directory
+flask db migrate -m "initial migration"
+flask db upgrade
+## construct the project to mvt model view template
+
+------------ create config.py file
+- will contains db config
+
+-- create init file
+-- create model file to deal with database
+------create models file
+
+
+
